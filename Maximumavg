@@ -1,0 +1,20 @@
+class Solution {
+    public int findMaxAverage(int[] arr, int n, int k) {
+        int idx = 0;
+        double maxavg = Double.NEGATIVE_INFINITY; // new thing
+        for (int i = 0; i < n - k + 1; i++) {
+            int sum = 0;
+            int t = i;
+            for (int j = 0; j < k; j++) {
+                sum += arr[t];
+                t++;
+            }
+            double avg = (double) sum / k;
+            if (maxavg < avg) {
+                idx = i;
+                maxavg = avg;
+            }
+        }
+        return idx;
+    }
+}
